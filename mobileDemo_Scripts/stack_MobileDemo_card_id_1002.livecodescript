@@ -65,8 +65,15 @@ on preOpenCard
    if the environment is "development" then
       set the rect of graphic "StackBackground" of me to 0,400,320,480
    end if
+   if isMobile() then
+      set the vScrollbar of field "Status" to false
+   end if
 end preOpenCard
 
+
+on closeCard
+   send "deleteMobileControl Status" to field "Status" of me
+end closeCard
 
 on resizeStack pNewW, pNewH, pOldW, pOldH
    lock screen
@@ -82,6 +89,7 @@ on resizeStack pNewW, pNewH, pOldW, pOldH
    set the rect of field "Status" of me to \
          12, the bottom of group "grpSize" of me + 6, \
          pNewW - 12, pNewH - 12
+   send "createScroller Status" to field "Status" of me
    
    -- this group is hidden except for in the IDE
    set the right of group "grpBehaviors" of me to \

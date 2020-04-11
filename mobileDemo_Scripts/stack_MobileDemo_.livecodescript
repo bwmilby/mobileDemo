@@ -57,3 +57,8 @@ function getRects
          "Effective:" && the effective working screenRect & lf after tRects
    return tRects
 end getRects
+
+
+function isMobile
+   return the environment is "mobile"
+end isMobile

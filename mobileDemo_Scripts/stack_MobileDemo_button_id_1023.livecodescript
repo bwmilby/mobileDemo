@@ -53,5 +53,11 @@ on mouseUp
       set the fullscreenmode of this stack to tMode
       setBackground
    end if
+   
+   if there is a field "Status" then
+      send "createScroller Status" to field "Status" of this card
+   else if there is a widget "TreeView" then
+      send "createScroller TreeView" to widget "TreeView" of this card
+   end if
    unlock screen
 end mouseUp

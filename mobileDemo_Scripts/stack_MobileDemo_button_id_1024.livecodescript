@@ -31,6 +31,10 @@ on resizeControl
    
    set the height of me to the bottom of button sButtons of me - the top me + 4
    
+   if there is a widget "NextCard" of me then
+      set the right of widget "NextCard" of me to the right of me - 12
+   end if
+   
    updatestatus "resizeControl" && the short name of me \
          && slash && the rect of me & lf
 end resizeControl
