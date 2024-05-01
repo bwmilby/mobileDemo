@@ -25,7 +25,6 @@ on resizeControl
 
    if there is a widget"NextCard" of me then
       set the right of widget"NextCard" of me to the right of me - 12
-      set the bottom of widget"NextCard" of me to the bottom of me - 12
    end if
 
    updatestatus "resizeControl" && the short name of me \

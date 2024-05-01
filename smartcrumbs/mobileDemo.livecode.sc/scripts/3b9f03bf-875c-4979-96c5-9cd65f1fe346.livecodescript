@@ -116,8 +116,7 @@ on setBackground
       set the width of graphic"DeviceBackground" of me to tNewW
       set the loc of graphic"DeviceBackground" of me to the loc of this card
       updateStatus "DeviceBackground rect:" && \
-            the rect of graphic"DeviceBackground" of me & lf & \
-            "Eff Wk SR:" && tRect & lf
+            the rect of graphic"DeviceBackground" of me & lf
    end if
    unlock screen
 end setBackground

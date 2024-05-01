@@ -54,21 +54,3 @@ end getRects
 function isMobile
    return the environment is "mobile"
 end isMobile
-
-
-on lockPortrait
-   local tOrientations
-   if the environment is "mobile" then
-      put "portrait,portrait upside down" into tOrientations
-      mobileSetAllowedOrientations tOrientations
-   end if
-end lockPortrait
-
-
-on unlockOrientation
-   local tOrientations
-   if the environment is "mobile" then
-      put "portrait,portrait upside down,landscape left,landscape right" into tOrientations
-      mobileSetAllowedOrientations tOrientations
-   end if
-end unlockOrientation
