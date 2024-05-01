@@ -10,6 +10,7 @@ local sScrollerID, sScrollerRect
 
 command createScroller pName -- scrolling fields
    local tRect
+   local tWidth
    if not isMobile() then exit createScroller
    deleteMobileControl pName -- delete any existing
    
@@ -17,7 +18,11 @@ command createScroller pName -- scrolling fields
    mobileControlCreate "scroller", pName
    put the result into sScrollerID
    mobileControlSet pName, "rect", tRect
-   put ("0,0," & (the formattedwidth of control pName) & "," & \
+   put the formattedwidth of control pName into tWidth
+   if tWidth is empty then
+      put the width of control pName into tWidth
+   end if
+   put ("0,0," & tWidth & "," & \
          the formattedheight of control pName) into sScrollerRect
    mobileControlSet pName, "contentRect", sScrollerRect
    mobileControlSet pName, "hScroll", 0
@@ -29,9 +34,14 @@ end createScroller
 
 
 on updateScroller pName
+   local tWidth
    if not isMobile() then exit updateScroller
    if pName is among the lines of mobileControls() then -- update
-      put ("0,0," & (the formattedwidth of control pName) & "," & \
+      put the formattedwidth of control pName into tWidth
+      if tWidth is empty then
+         put the width of control pName into tWidth
+      end if
+      put ("0,0," & tWidth & "," & \
             the formattedheight of control pName) into sScrollerRect
       mobileControlSet pName, "contentRect", sScrollerRect
       mobileControlSet pName, "hScroll", 0
